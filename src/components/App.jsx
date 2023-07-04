@@ -97,7 +97,6 @@ class App extends Component {
   render() {
     const { images, isLoading, error, showModal, selectedImage, isLastPage } =
       this.state;
-
     return (
       <div className={css.App}>
         <Searchbar onSubmit={this.handleSearchSubmit} />
