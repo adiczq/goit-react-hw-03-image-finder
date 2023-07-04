@@ -8,10 +8,14 @@ class ImageGallery extends Component {
     const { images, onItemClick } = this.props;
     return (
       <ul className={css.ImageGallery}>
-        {images.map(image => (
+        {images.map(({ id, webformatURL, largeImageURL, tags }) => (
           <ImageGalleryItem
-            key={image.id}
-            image={image}
+            key={id}
+            image={{
+              webformatURL: webformatURL,
+              tags: tags,
+              largeImageURL: largeImageURL,
+            }}
             onClick={onItemClick}
           />
         ))}
@@ -26,6 +30,7 @@ ImageGallery.propTypes = {
       id: PropTypes.number.isRequired,
       webformatURL: PropTypes.string.isRequired,
       largeImageURL: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
     })
   ).isRequired,
   onItemClick: PropTypes.func.isRequired,
